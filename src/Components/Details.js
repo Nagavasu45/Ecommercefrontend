@@ -19,14 +19,16 @@ function Details() {
     }, [dispatch, params.id]);
 
     const productDetails = useSelector(state => state.detailsReducer.value);
+    
 
-    const loading = useSelector(state => state.detailsReducer.loading);
+    let loading = useSelector(state => state.detailsReducer.loading);
 
     return (
         <div>
             <h1 id="details-heading">DETAILS</h1>
 
-            {loading ? <div style={{ textAlign: "center", marginTop: "200px" }}>Loading...</div> : <SingleProduct productDetails={productDetails} />}
+            {loading ? (<div style={{ textAlign: "center", marginTop: "200px" }}>Loading...</div>) : 
+            (<SingleProduct productDetails={productDetails} />)}
 
         </div>
     )

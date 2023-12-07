@@ -6,7 +6,7 @@ import "../styles/SingleProduct.css";
 
 function SingleProduct(props) {
 
-    // console.log(props.productDetails);
+    console.log(props.productDetails);
 
     const dispatch = useDispatch();
 
@@ -15,19 +15,19 @@ function SingleProduct(props) {
         <div id="single-product-container">
 
             <div className="flex-item">
-                <img src={props.productDetails.imgstore} alt="not loaded" />
+                <img src={props.productDetails[0]?.imgstore} alt="not loaded" />
             </div>
 
             <div id="details" className="flex-item">
-                <h2 id="brand">{props.productDetails.catageory}</h2>
-                <h2 id="title">{props.productDetails.modelname}</h2>
-                <h2 id="description">"{props.productDetails.description}"</h2>
-                <span>category: {props.productDetails.subcategory}</span>
+                <h2 id="brand">{props.productDetails[0]?.catageory}</h2>
+                <h2 id="title">{props.productDetails[0]?.modelname}</h2>
+                <h2 id="description">{props.productDetails[0]?.des}</h2>
+                <span>category: {props.productDetails[0]?.subcategory}</span>
 
                 <div id="price-container">
                     <h2 id="price">
                         <span>$</span>
-                        {props.productDetails.price}
+                        {props.productDetails[0]?.price}
                     </h2>
                 </div>
 

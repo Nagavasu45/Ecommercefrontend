@@ -41,7 +41,8 @@
 #single-cart-container>#edit {
     position: absolute;
     left: 1.2rem;
-    bottom: 1.3rem;
+    bottom: 0.1rem;
+    /* margin-bottom: 50px; */
 }
 
 #single-cart-container>#edit>* {
@@ -166,6 +167,7 @@
     }
 
     #single-cart-container>#edit>* {
+        
         height: 2.5rem;
     }
 }

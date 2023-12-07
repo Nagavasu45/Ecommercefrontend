@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 import { add } from "../redux/features/navbar/navbarSlice";
 
@@ -14,7 +14,7 @@ function Products() {
 
     const products = useSelector(state => state.productsReducer.value); // products is an array
 
-    const navigate = useNavigate();
+    const nav = useNavigate();
 
     const dispatch = useDispatch();
 
@@ -38,14 +38,14 @@ function Products() {
                 {products.length > 0 && products.map((eachProduct, index) => {
                     
                     return (
-                        <NavLink to="/">
+                        // <NavLink to="/">
                         <div id="flex-item" key={index}>
 
                             <div id="product-head">
-                                <img onClick={() => navigate(`/details/${eachProduct.id}`)}
+                                <img onClick={() => nav(`/details/${eachProduct.id}`)}
                                     src={eachProduct.imgstore} // 
-                                    alt='not loaded'>
-                                </img>
+                                    alt='not loaded'/>
+                                {/* </img> */}
 
                                 <h2>{eachProduct.modelname}</h2>
                             </div>
@@ -59,7 +59,8 @@ function Products() {
                                 <button id="shopping-cart" onClick={() => dispatch(add(eachProduct))} >Add</button> {/* sepete ekleme işlemi */}
                             </div>
                         </div>
-                        </NavLink>);
+                        // </NavLink>
+                        );
                 })}
             </div>
         </>

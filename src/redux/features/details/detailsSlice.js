@@ -22,9 +22,12 @@ const initialState = {
 }
 
 export const getDetails = createAsyncThunk("getDetails", async (id) => {
-    const response = await axios.get(`http://localhost:3400/mobdata/${id}`);
+    const response = await axios.get(`http://localhost:3400/mobdata`);
+    console.log(response.data)
+    console.log(typeof(id))
+    const data=response.data.filter((item)=>item.id===Number(id))
    
-    return response.data;
+    return data;
 })
 
 export const detailsSlice = createSlice({
@@ -33,7 +36,7 @@ export const detailsSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(getDetails.pending, (state, action) => {
-            state.loading = true;
+            state.loading = false;
         })
 
         builder.addCase(getDetails.fulfilled, (state, action) => {
@@ -43,6 +46,7 @@ export const detailsSlice = createSlice({
         })
 
         builder.addCase(getDetails.rejected, (state, action) => {
+            // state.loading = false;
             state.error = "Bad fetching!"
         })
     }
