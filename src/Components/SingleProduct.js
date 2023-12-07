@@ -15,7 +15,7 @@ function SingleProduct(props) {
         <div id="single-product-container">
 
             <div className="flex-item">
-                <img src={props.productDetails.imgstore} alt="product image" />
+                <img src={props.productDetails.imgstore} alt="not loaded" />
             </div>
 
             <div id="details" className="flex-item">

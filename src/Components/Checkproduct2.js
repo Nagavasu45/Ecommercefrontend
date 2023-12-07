@@ -31,7 +31,7 @@ function Checkproduct2() {
                             <div id="product-head">
                                 <img onClick={() => navigate(`/details/${eachProduct.id}`)}
                                     src={eachProduct.imgstore} // 
-                                    alt={eachProduct.id + " image"}>
+                                    alt='not loaded'>
                                 </img>
 
                                 <h2>{eachProduct.modelname}</h2>

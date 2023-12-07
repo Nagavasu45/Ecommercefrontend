@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-// import { PiShoppingCart } from "react-icons/pi";
+import { NavLink, useNavigate } from "react-router-dom";
+
 import { add } from "../redux/features/navbar/navbarSlice";
 
 // Component
@@ -38,12 +38,13 @@ function Products() {
                 {products.length > 0 && products.map((eachProduct, index) => {
                     
                     return (
+                        <NavLink to="/">
                         <div id="flex-item" key={index}>
 
                             <div id="product-head">
                                 <img onClick={() => navigate(`/details/${eachProduct.id}`)}
                                     src={eachProduct.imgstore} // 
-                                    alt={eachProduct.id + " image"}>
+                                    alt='not loaded'>
                                 </img>
 
                                 <h2>{eachProduct.modelname}</h2>
@@ -58,7 +59,7 @@ function Products() {
                                 <button id="shopping-cart" onClick={() => dispatch(add(eachProduct))} >Add</button> {/* sepete ekleme işlemi */}
                             </div>
                         </div>
-                    );
+                        </NavLink>);
                 })}
             </div>
         </>
