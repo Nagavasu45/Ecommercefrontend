@@ -5,7 +5,7 @@ import {  useNavigate ,NavLink} from "react-router-dom";
 import { add } from "../redux/features/navbar/navbarSlice";
 import "../styles/footer.css"
 // Component
-import Hero from "./Slide";
+// import Hero from "./Slide";
 
 import "../styles/Products.css";
 import { useParams } from "react-router-dom";
@@ -20,7 +20,7 @@ function SearchBar() {
     console.log(param)
 
     const dispatch = useDispatch();
-    const searchItem=localStorage.getItem("value1")
+    // const searchItem=localStorage.getItem("value1")
     // console.log("welcome")
     // console.log(typeof(searchItem))
     

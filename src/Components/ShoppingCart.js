@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ZeroProduct from "./ZeroProduct.js";
 // import { FaTrashAlt } from "react-icons/fa";
-import { add, remove, removeOne, resetCart,removecartItems } from "../redux/features/navbar/navbarSlice";
+import { add, remove, removeOne, } from "../redux/features/navbar/navbarSlice";
 import { useNavigate } from "react-router-dom";
 
 
@@ -23,10 +23,7 @@ function ShoppingCart() {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  // useEffect(()=>{
-  //   navigate('/ShoppingCart')
-
-  // },[productsInShoppingCart,navigate])
+  
 
   
   const token = localStorage.getItem("token");
@@ -54,21 +51,7 @@ function ShoppingCart() {
     color: "#dcd9d9",
     cursor: "default"
   }
-  // const removecartItemscall=(e)=>{
-  //   e.preventDefault();
-  //   dispatch(removecartItems)
-  // }
-  // const removecartItemscall=()=>{
-  //   // e.preventDefault();
-  //   // // useSelector((state) => state.navbarReducer.value)
-  //   // const result=localStorage.getItem("value")
-  //   // console.log(result)
-    
-  //   // localStorage.removeItem("value")
-  //   //dispatch({removecartItems})
-  //   localStorage.removeItem("value")
-  //   navigate("/ShoppingCart")
-  // }
+  
 
   return (
     <>
