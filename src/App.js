@@ -3,12 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "./redux/features/products/productsSlice";
 import "../src/styles/Navbar.css"
 
-// Components
-// import Navbar from "../components/Navbar";
-// import Loading from "../components/Loading";
-// import Products from "../components/Products";
-// import Details from "../components/Details";
-// import ShoppingCart from "../components/ShoppingCart";
+
 import Navbar from "./Components/Navbar";
 import Loading from "./Components/Loading";
 import Products from "./Components/Products";
@@ -25,7 +20,7 @@ import Checkproduct from "./Components/Checkproduct";
 import Checkproduct2 from "./Components/Checkproduct2";
 import Checkproduct3 from "./Components/Checkproduct3";
 import Checkproduct4 from "./Components/Checkproduct4";
-import MianCompo from "./Components/MianCompo";
+
 import Register from "./Components/Register";
 import Login from "./Components/Login";
 import SearchBar from "./Components/SearchBar";
@@ -34,7 +29,7 @@ function App() {
 
   const dispatch = useDispatch();
 
-  // Sayfa yüklendiğinde ürünler axios ile çekilecek.
+  
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch])

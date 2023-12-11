@@ -94,26 +94,27 @@ function Navbar() {
         </div>
         <div className="search-1"> </div>
             {/* <div id="icon"><button id="icon-in-div" onClick={handleClickIcon}>Home</button></div> */}
-            <div className="nav-bar-links1">
-            <div>
-            <NavLink  className =" nav-bar-links3"  to="/">HOME</NavLink>
+            <div className="maincon">
+            <div className =" subcon-1">
+            <NavLink     to="/">HOME</NavLink>
             </div>
-            <div>
-            <NavLink className =" nav-bar-links2" to="/Checkproduct">MOBILES</NavLink>
+            <div className =" subcon-2">
+            <NavLink  to="/Checkproduct">MOBILES</NavLink>
             </div>
-            <div>
-            <NavLink className =" nav-bar-links2" to="/Checkproduct2">LAPTOPS</NavLink>
+            <div className =" subcon-3">
+            <NavLink  to="/Checkproduct2">LAPTOPS</NavLink>
             </div>
-            <div>
-            <NavLink className =" nav-bar-links2" to="/Checkproduct3"> TV'S</NavLink>
+            <div className ="subcon-4">
+            <NavLink  to="/Checkproduct3"> TV'S</NavLink>
             
             </div>
-            <div><NavLink className =" nav-bar-links2" to="/Checkproduct4">ACCESSORIES</NavLink>
+            <div className =" subcon-5 ">
+                <NavLink  to="/Checkproduct4">ACCESSORIES</NavLink>
             </div>
             {/* <NavLink className =" nav-bar-links2" to="/MianCompo"><button class="dropbtn">SignUp/In</button></NavLink> */}
             
             </div>
-            {loginout ? <div className="dropdown">
+            {loginout ? <div className="dropdown ">
   <button className="dropbtn">login</button>
   <div className="dropdown-content">
     <NavLink to="/Register">register</NavLink>
