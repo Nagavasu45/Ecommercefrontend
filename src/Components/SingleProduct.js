@@ -31,7 +31,7 @@ function SingleProduct(props) {
                     </h2>
                 </div>
 
-                <button onClick={() => dispatch(add(props.productDetails))}>Add to cart</button> {/* Sepete ekleme işlemi */}
+                <button onClick={() => dispatch(add(props.productDetails[0]))}>Add to cart</button> {/* Sepete ekleme işlemi */}
             </div>
         </div>
     )

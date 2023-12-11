@@ -3,6 +3,7 @@ import { toast } from "react-hot-toast";
 
 function fetchFromLocalStorage() {
     let value = localStorage.getItem("value");
+    console.log(value)
     if (value) {
         return JSON.parse(value);
     }
@@ -41,14 +42,14 @@ export const navbarSlice = createSlice({
 
             state.value = uniqueProducts;
             storeInLocalStorage(state.value);
+            console.log(state.value)
             toast.success("Product is added!");
         },
 
         remove: (state, action) => {
             const index = state.value.findIndex(product => product.id === action.payload);
 
-            // Eğer bulunan indeks -1 değilse (yani ürün bulunduysa),
-            // bu, ürünün dizide bulunduğu anlamına gelir.
+            
             if (index !== -1) {
                 state.value.splice(index, 1); // Sepetten bu indeksi kullanarak 1 öğeyi çıkarır.
 
@@ -71,8 +72,33 @@ export const navbarSlice = createSlice({
             }
         }
     },
+    // resetCart: (state,action) => {
+    //     state.value.action = [];
+    //     // state.totalAmount = 0;
+    // },
+    //removecartItems:(state,action)=>{
+        
+        // let temp=[]
+        // console.log(state.value)
+        // let value = localStorage.getItem("value");
+        // if (value) {
+        // return [];
+        // }
+        //  empty array
+    
+        // state.value.=[]
+        // let value=localStorage.getItem("value")
+        // localStorage.removeItem("value")
+        // localStorage.state.value=[];
+        // localStorage.removeItem("mytime");
+        // if (value){
+        //     state.value=[]
+        // }
+       
+
+    // },
 });
 
-export const { add, remove, removeOne } = navbarSlice.actions;
+export const { add, remove, removeOne,resetCart,removecartItems } = navbarSlice.actions;
 
 export default navbarSlice.reducer;

@@ -15,7 +15,7 @@ export const getProducts = createAsyncThunk("getProducts", async () => {
     return response.data;
 })
 
-export const productsSlice3 = createSlice({
+export const homeproductsSlice = createSlice({
     name: "products",
     initialState,
     reducers: {},
@@ -35,4 +35,4 @@ export const productsSlice3 = createSlice({
     }
 });
 
-export default productsSlice3.reducer;
+export default homeproductsSlice.reducer;

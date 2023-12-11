@@ -25,6 +25,10 @@ import Checkproduct from "./Components/Checkproduct";
 import Checkproduct2 from "./Components/Checkproduct2";
 import Checkproduct3 from "./Components/Checkproduct3";
 import Checkproduct4 from "./Components/Checkproduct4";
+import MianCompo from "./Components/MianCompo";
+import Register from "./Components/Register";
+import Login from "./Components/Login";
+import SearchBar from "./Components/SearchBar";
 
 function App() {
 
@@ -67,6 +71,10 @@ function App() {
         <Route path="/details/:id" element={<Details />} /> {/* "id" dinamik olarak değişeceği için ":" kullandık.  */}
         
         <Route path="/shoppingCart" element={<ShoppingCart />} />
+        <Route path="/Register" element={<Register />}/>
+        <Route path="/Login" element={<Login />}/>
+        <Route path="/SearchBar/:search" element={loading ? <loading/> :<SearchBar />} />
+        
       </Routes>
       {/* <Routes>
         <Route path="/home" element={<Products />}

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import { PiShoppingCart } from "react-icons/pi";
 import { add } from "../redux/features/navbar/navbarSlice";
 
@@ -8,63 +8,57 @@ import { add } from "../redux/features/navbar/navbarSlice";
 // import Hero from "./Slide";
 
 import "../styles/Products.css";
-import axios from "axios";
 
-function Checkproduct() {
+function Homeproduct() {
 
-    const products = useSelector(state => state.checkproductReducer1.value); // products is an array
+    const products = useSelector(state => state.homeproductReducer1.value); // products is an array
 
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
+   
+    const token = localStorage.getItem("token");
+    // const navigate = useNavigate();
+    // const token = localStorage.getItem("token");
     
-    // const handleaddtocart=(eachProduct)=>{
-    //     if (token) {
-    //         axios.get("https://ecombackend-82yd.onrender.com/auth", { headers: { "authorization": `Bearer ${token}` } }) //http://localhost:4500/apis/auth https://ecommerce-ns6o.onrender.com/apis/auth
-    //             .then((res) => {
-    //                 console.log(res.data);
-    //                 dispatch(add(eachProduct))
-    //             })
-    //             .catch(err => console.log(err))
-    //     }
-    //     else {
-    //         alert("Please login to view cart page!");
-    //         navigate("/login");
-    //     }
-    
-        
-
-
-    // }
-    function handleadd(eachProduct){
-        const token = localStorage.getItem("token");
-  console.log(token)
-//   useEffect(() => {
-    if (token) {
-        axios.get("https://ecombackend-82yd.onrender.com/auth", { headers: { "authorization": `Bearer ${token}` } }) //http://localhost:4500/apis/auth https://ecommerce-ns6o.onrender.com/apis/auth
-            .then((res) => {
-                console.log(res.data);
-                dispatch(add(eachProduct))
-            })
-            .catch(err => console.log(err))
+    const checkadd = (e) => {
+        e.preventDefault();
+        // useEffect(() => {
+        //     if (token) {
+        //         axios.get("https://localhost:3400/auth", { headers: { "authorization": `Bearer ${token}` } }) //http://localhost:4500/apis/auth https://ecommerce-ns6o.onrender.com/apis/auth
+        //             .then((res) => {
+        //                 console.log(res.data);
+        //             })
+        //             .catch(err => console.log(err))
+        //     }
+        //     else {
+        //         alert("Please login to view cart page!");
+        //         navigate("/login");
+        //     }
+        // }, [token, navigate])
+        // if (token) {
+        //     axios.get("http://localhost:3400/auth", { headers: { "authorization": `Bearer ${token}` } }) //http://localhost:4500/apis/auth https://ecommerce-ns6o.onrender.com/apis/auth
+        //         .then((res) => {
+        //             console.log(res.data);
+        //             console.log("item:", eachProduct);
+        //             dispatch(add(eachProduct))
+        //         })
+        //         .catch(err => console.log(err))
+        // }
+        // else {
+        //     alert("Please login to view cart page!");
+        //     navigate("/login");
+        // }
     }
-    else {
-        alert("Please login to view cart page!");
-        navigate("/login");
-    }
-
-
-    }
-
 
     return (
         <>
             {/* <Hero /> */}
 
-            <h1>MOBILES</h1>
+            <h1>HOME</h1>
 
             <div id="flex-container">
-            {products.length > 0 && products.filter((item)=>item.catageory==="mobile").map((eachProduct, index) => {
+            {products.length > 0 && products.map((eachProduct, index) => {
                     return (
                         <div id="flex-item" key={index}>
 
@@ -83,7 +77,9 @@ function Checkproduct() {
                                     {eachProduct.price}
                                 </h2>
 
-                                <button id="shopping-cart" onClick={()=>handleadd(eachProduct)} >Add</button> {/* sepete ekleme işlemi */}
+                                <button id="shopping-cart"  >Add</button> 
+                                onClick={(eachProduct) => checkadd(eachProduct)}
+                                {/* () => dispatch(add(eachProduct)) */}
                             </div>
                         </div>
                     );
@@ -131,4 +127,4 @@ function Checkproduct() {
 
 
 
-export default Checkproduct
+export default Homeproduct

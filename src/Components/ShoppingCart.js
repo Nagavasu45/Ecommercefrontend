@@ -1,27 +1,49 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ZeroProduct from "./ZeroProduct.js";
 // import { FaTrashAlt } from "react-icons/fa";
-import { add, remove, removeOne } from "../redux/features/navbar/navbarSlice";
+import { add, remove, removeOne, resetCart,removecartItems } from "../redux/features/navbar/navbarSlice";
 import { useNavigate } from "react-router-dom";
 
+
 import "../styles/ShoppingCart.css";
+import axios from "axios";
 
 function ShoppingCart() {
-  const productsInShoppingCart = useSelector((state) => state.navbarReducer.value); // productsInShoppingCart is an array
+  const productsInShoppingCart = useSelector((state) => state.navbarReducer.value); 
 
-  // Sepetteki ürünlerin fiyatlarının toplamını hesaplama
+ 
   function calculateTotalPrice() {
     let totalPrice = 0;
     for (let i = 0; i < productsInShoppingCart.length; i++) {
-      totalPrice += productsInShoppingCart[i].price * productsInShoppingCart[i].quantity; // Her ürünü adedi ile çarparak toplam fiyatı hesaplama
+      totalPrice += productsInShoppingCart[i].price * productsInShoppingCart[i].quantity; 
     }
     return totalPrice;
   }
-
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
+  // useEffect(()=>{
+  //   navigate('/ShoppingCart')
+
+  // },[productsInShoppingCart,navigate])
+
+  
+  const token = localStorage.getItem("token");
+  console.log(token)
+  useEffect(() => {
+    if (token) {
+        axios.get("https://ecombackend-82yd.onrender.com/auth", { headers: { "authorization": `Bearer ${token}` } }) //http://localhost:4500/apis/auth https://ecommerce-ns6o.onrender.com/apis/auth
+            .then((res) => {
+                console.log(res.data);
+            })
+            .catch(err => console.log(err))
+    }
+    else {
+        alert("Please login to view cart page!");
+        navigate("/login");
+    }
+}, [token, navigate])
 
   const defaultStyle = {
     color: "#9d174d",
@@ -32,6 +54,21 @@ function ShoppingCart() {
     color: "#dcd9d9",
     cursor: "default"
   }
+  // const removecartItemscall=(e)=>{
+  //   e.preventDefault();
+  //   dispatch(removecartItems)
+  // }
+  // const removecartItemscall=()=>{
+  //   // e.preventDefault();
+  //   // // useSelector((state) => state.navbarReducer.value)
+  //   // const result=localStorage.getItem("value")
+  //   // console.log(result)
+    
+  //   // localStorage.removeItem("value")
+  //   //dispatch({removecartItems})
+  //   localStorage.removeItem("value")
+  //   navigate("/ShoppingCart")
+  // }
 
   return (
     <>
@@ -75,6 +112,8 @@ function ShoppingCart() {
             <span id="dolar">$</span>
             <span id="right">{calculateTotalPrice()}</span>
           </div>
+          {/* <button onClick={removecartItemscall}>clearCart</button> */}
+          <button>payment</button>
         </>
       )}
     </>

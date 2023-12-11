@@ -11,11 +11,11 @@ export const getProducts = createAsyncThunk("getProducts", async () => {
     const response = await axios.get("https://ecombackend-82yd.onrender.com/mobdata");
     // console.log(response);
     // console.log(response.data);
-    // console.log(response.data.products); // Returns a 20-element array where each element is an object.
+    // console.log(response.data.products); 
     return response.data;
 })
 
-export const productsSlice3 = createSlice({
+export const searchbarSlice = createSlice({
     name: "products",
     initialState,
     reducers: {},
@@ -35,4 +35,4 @@ export const productsSlice3 = createSlice({
     }
 });
 
-export default productsSlice3.reducer;
+export default productsSlice4.reducer;

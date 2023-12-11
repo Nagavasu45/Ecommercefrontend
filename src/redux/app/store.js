@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import productsSlice from "../features/products/productsSlice";
 import navbarSlice from './../features/navbar/navbarSlice';
+import hm from "../features/homeproduct/homeproductSlice";
 import dt from './../features/details/detailsSlice';
 import p1 from "../features/checkproduct/checkproductSlice1";
 import p2 from "../features/checkproduct2/checkproductSlice2"
@@ -9,6 +10,7 @@ import p4 from "../features/checkproduct4/checkproductSlice4"
 
 export const store = configureStore({
     reducer: {
+        homeproductReducer:hm,
         productsReducer: productsSlice,  
         navbarReducer: navbarSlice,      
         detailsReducer: dt,

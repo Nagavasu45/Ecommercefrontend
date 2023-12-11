@@ -1,58 +1,55 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
-// import { PiShoppingCart } from "react-icons/pi";
+import {  useNavigate ,NavLink} from "react-router-dom";
+
 import { add } from "../redux/features/navbar/navbarSlice";
-
-
-// import Hero from "./Slide";
+import "../styles/footer.css"
+// Component
+import Hero from "./Slide";
 
 import "../styles/Products.css";
-import axios from "axios";
+import { useParams } from "react-router-dom";
 
-function Checkproduct4() {
+function SearchBar() {
 
-    const products = useSelector(state => state.checkproductReducer4.value); // products is an array
+    const products = useSelector(state => state.productsReducer.value); // products is an array
 
-    const navigate = useNavigate();
+    const nav = useNavigate();
+    const param=useParams().search.trim();
+    
+    console.log(param)
 
     const dispatch = useDispatch();
-    function handleadd(eachProduct){
-        const token = localStorage.getItem("token");
-  console.log(token)
-//   useEffect(() => {
-    if (token) {
-        axios.get("https://ecombackend-82yd.onrender.com/auth", { headers: { "authorization": `Bearer ${token}` } }) //http://localhost:4500/apis/auth https://ecommerce-ns6o.onrender.com/apis/auth
-            .then((res) => {
-                console.log(res.data);
-                dispatch(add(eachProduct))
-            })
-            .catch(err => console.log(err))
-    }
-    else {
-        alert("Please login to view cart page!");
-        navigate("/login");
-    }
-
-
-    }
+    const searchItem=localStorage.getItem("value1")
+    // console.log("welcome")
+    // console.log(typeof(searchItem))
+    
+    // localStorage.removeItem("value1")
+   
+    // console.log(arr)
+    
 
     return (
         <>
+       
             {/* <Hero /> */}
+            
 
-            <h1>ACCESSORIES</h1>
+            <h1>-----Are you looking this------</h1>
 
             <div id="flex-container">
-            {products.length > 0 && products.filter((item)=>item.catageory==="access").map((eachProduct, index) => {
+            {/* {data1.filter((item1)=>item1.level==="medium" && item1.catageory==="bolly") */}
+                {products.filter((item)=>item.subcatageory===param ||item.catageory===param || item.modelname===param).map((eachProduct, index) => {
+                    
                     return (
+                        // <NavLink to="/">
                         <div id="flex-item" key={index}>
 
                             <div id="product-head">
-                                <img onClick={() => navigate(`/details/${eachProduct.id}`)}
+                                <img onClick={() => nav(`/details/${eachProduct.id}`)}
                                     src={eachProduct.imgstore} // 
-                                    alt='not loaded'>
-                                </img>
+                                    alt='not loaded'/>
+                                {/* </img> */}
 
                                 <h2>{eachProduct.modelname}</h2>
                             </div>
@@ -62,13 +59,12 @@ function Checkproduct4() {
                                     <span id="dolar-span">$</span>
                                     {eachProduct.price}
                                 </h2>
-                                
 
-                                <button id="shopping-cart" onClick={()=>handleadd(eachProduct)} >Add</button> {/* sepete ekleme işlemi */}
-                                {/* () => dispatch(add(eachProduct)) */}
+                                <button id="shopping-cart" onClick={() => dispatch(add(eachProduct))} >Add</button> {/* sepete ekleme işlemi */}
                             </div>
                         </div>
-                    );
+                        // </NavLink>
+                        );
                 })}
             </div>
             <div className="f1">
@@ -111,6 +107,4 @@ function Checkproduct4() {
     )
 };
 
-
-
-export default Checkproduct4
+export default SearchBar;

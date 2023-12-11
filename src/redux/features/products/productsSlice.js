@@ -8,7 +8,7 @@ const initialState = {
 }
 
 export const getProducts = createAsyncThunk("getProducts", async () => {
-    const response = await axios.get("http://localhost:3400/mobdata");
+    const response = await axios.get("https://ecombackend-82yd.onrender.com/mobdata");
     // console.log(response);
     // console.log(response.data);
     // console.log(response.data.products); // Returns a 20-element array where each element is an object.
@@ -26,7 +26,7 @@ export const productsSlice = createSlice({
 
         builder.addCase(getProducts.fulfilled, (state, action) => {
             state.loading = false;
-            state.value = action.payload; // api'den gelen verileri value'ya doldurma işlemi
+            state.value = action.payload; 
         })
 
         builder.addCase(getProducts.rejected, (state, action) => {

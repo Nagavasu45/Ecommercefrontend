@@ -43,7 +43,7 @@
 
 #single-product-container>#details>span {
     font-size: 0.9rem;
-    display: block;
+    /* display: block; */
     margin-bottom: 1rem;
 }
 
@@ -94,6 +94,18 @@ button:hover {
 
     #single-product-container>#details {
         padding: 0.3rem;
+    }
+    button {
+        color: white;
+        background-color: #9d174d;
+        border-radius: 5px;
+        padding: 8px;
+        border: none;
+        outline: none;
+    }
+    
+    button:hover {
+        cursor: pointer;
     }
 }
 
