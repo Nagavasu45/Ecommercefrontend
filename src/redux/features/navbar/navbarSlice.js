@@ -52,7 +52,7 @@ export const navbarSlice = createSlice({
 
             
             if (index !== -1) {
-                state.value.splice(index, 1); // Sepetten bu indeksi kullanarak 1 öğeyi çıkarır.
+                state.value.splice(index, 1); 
 
                 storeInLocalStorage(state.value);
                 toast.success("Product is removed!");
@@ -74,18 +74,12 @@ export const navbarSlice = createSlice({
         }
     },
     // resetCart: (state,action) => {
-    //    // state.value = [];
+    //    state.value = [];
 
-    //     const index = state.value.findIndex(product => product.id === action.payload);
+     
 
-            
-    //     if (index !== -1) {
-    //         state.value.splice(index, 1); // Sepetten bu indeksi kullanarak 1 öğeyi çıkarır.
-
-    //         //storeInLocalStorage(state.value);
-    //         //toast.success("Product is removed!");
-    //     }
-    //     // state.totalAmount = 0;
+    //     storeInLocalStorage(state.value);
+        
     // },
     //removecartItems:(state,action)=>{
         

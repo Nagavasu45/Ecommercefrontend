@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom'
 const Success = () => {
   const  navigate=useNavigate()
   const handlecartcount=()=>{
-    localStorage.removeItem("value")
+    localStorage.clear()
     navigate("/")
   //
   
-  window.location.reload(false);
+  // window.location.reload(false);
   }
 
   return (

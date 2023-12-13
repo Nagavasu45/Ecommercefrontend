@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ZeroProduct from "./ZeroProduct.js";
 // import { FaTrashAlt } from "react-icons/fa";
-import { add, remove, removeOne } from "../redux/features/navbar/navbarSlice";
+import { add, remove, removeOne, resetCart } from "../redux/features/navbar/navbarSlice";
 import { useNavigate } from "react-router-dom";
 
 
@@ -93,13 +93,13 @@ body:JSON.stringify(body),
   }
 let resetCart1=()=>{
   console.log("checking")
-  localStorage.removeItem("value")
+  //localStorage.removeItem("value")
   //dispatch(resetCart(cartitems))
   for (let i=0;i<productsInShoppingCart.length;i++){
     dispatch(remove(productsInShoppingCart[i]))
   }
-  window.location.reload(false);
-
+  window.location.reload(true);
+// dispatch(resetCart)
 }
 
   
