@@ -24,6 +24,9 @@ import Checkproduct4 from "./Components/Checkproduct4";
 import Register from "./Components/Register";
 import Login from "./Components/Login";
 import SearchBar from "./Components/SearchBar";
+import Success from "./Components/Success";
+import Cancel from "./Components/Cancel";
+// import Payment from "./Components/Payment";
 
 function App() {
 
@@ -69,7 +72,9 @@ function App() {
         <Route path="/Register" element={<Register />}/>
         <Route path="/Login" element={<Login />}/>
         <Route path="/SearchBar/:search" element={loading ? <loading/> :<SearchBar />} />
-        
+        <Route path="/Success" element={<Success />} />
+        <Route path="/Cancel" element={<Cancel />}/>
+        {/* <Route path="/Payment/:amount" element={<Payment />}/> */}
       </Routes>
       {/* <Routes>
         <Route path="/home" element={<Products />}

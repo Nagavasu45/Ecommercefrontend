@@ -18,6 +18,7 @@ function storeInLocalStorage(data) {
 
 const initialState = {
     value: fetchFromLocalStorage(),
+    
 }
 
 export const navbarSlice = createSlice({
@@ -73,7 +74,17 @@ export const navbarSlice = createSlice({
         }
     },
     // resetCart: (state,action) => {
-    //     state.value.action = [];
+    //    // state.value = [];
+
+    //     const index = state.value.findIndex(product => product.id === action.payload);
+
+            
+    //     if (index !== -1) {
+    //         state.value.splice(index, 1); // Sepetten bu indeksi kullanarak 1 öğeyi çıkarır.
+
+    //         //storeInLocalStorage(state.value);
+    //         //toast.success("Product is removed!");
+    //     }
     //     // state.totalAmount = 0;
     // },
     //removecartItems:(state,action)=>{
@@ -99,6 +110,6 @@ export const navbarSlice = createSlice({
     // },
 });
 
-export const { add, remove, removeOne,resetCart,removecartItems } = navbarSlice.actions;
+export const { add, remove, removeOne } = navbarSlice.actions;
 
 export default navbarSlice.reducer;

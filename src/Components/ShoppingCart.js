@@ -2,12 +2,14 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ZeroProduct from "./ZeroProduct.js";
 // import { FaTrashAlt } from "react-icons/fa";
-import { add, remove, removeOne, } from "../redux/features/navbar/navbarSlice";
+import { add, remove, removeOne, resetCart, } from "../redux/features/navbar/navbarSlice";
 import { useNavigate } from "react-router-dom";
 
 
 import "../styles/ShoppingCart.css";
 import axios from "axios";
+import { loadStripe } from "@stripe/stripe-js";
+import toast from "react-hot-toast";
 
 function ShoppingCart() {
   const productsInShoppingCart = useSelector((state) => state.navbarReducer.value); 
@@ -51,6 +53,55 @@ function ShoppingCart() {
     color: "#dcd9d9",
     cursor: "default"
   }
+  
+  
+  
+  const makePayment=async ()=>{
+    const stripe=await loadStripe(" pk_test_51OMERySJb30zHYKXhazWu96YHeq9esM7jjoHRU5Yl6OsFBFrIqAN4l6DR432lstZ8S1BEgMXk05yGcoIoqcZQ0FJ00fJW2eWVM")
+    const body={
+      products:productsInShoppingCart
+    }
+    const headers={
+      "content-Type":"application/json"
+    }
+    const response=await fetch("http://localhost:3400/createcheckout",
+    {method:"POST",
+  headers:headers,
+body:JSON.stringify(body),
+
+}
+    );
+    const session=await response.json();
+    console.log(session)
+    const result=stripe.redirectToCheckout({
+      sessionId:session.id
+    });
+   
+  // localStorage.removeItem("value")
+  // //dispatch(resetCart(cartitems))
+  // for (let i=0;i<productsInShoppingCart.length;i++){
+  //   dispatch(remove(productsInShoppingCart[i]))
+  // }
+  // window.location.reload(false);
+
+  
+    if(result.error){
+      console.log( result.error);
+    }
+
+
+  }
+let resetCart1=()=>{
+  console.log("checking")
+  localStorage.removeItem("value")
+  //dispatch(resetCart(cartitems))
+  for (let i=0;i<productsInShoppingCart.length;i++){
+    dispatch(remove(productsInShoppingCart[i]))
+  }
+  window.location.reload(false);
+
+}
+
   
 
   return (
@@ -96,7 +147,8 @@ function ShoppingCart() {
             <span id="right">{calculateTotalPrice()}</span>
           </div>
           {/* <button onClick={removecartItemscall}>clearCart</button> */}
-          <button>payment</button>
+          <button className="makep" onClick={makePayment}>payment</button>
+          <button onClick={resetCart1}>clearcart</button>
         </>
       )}
     </>
