@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ZeroProduct from "./ZeroProduct.js";
 // import { FaTrashAlt } from "react-icons/fa";
-import { add, remove, removeOne, resetCart, } from "../redux/features/navbar/navbarSlice";
+import { add, remove, removeOne } from "../redux/features/navbar/navbarSlice";
 import { useNavigate } from "react-router-dom";
 
 
 import "../styles/ShoppingCart.css";
 import axios from "axios";
 import { loadStripe } from "@stripe/stripe-js";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 
 function ShoppingCart() {
   const productsInShoppingCart = useSelector((state) => state.navbarReducer.value); 
