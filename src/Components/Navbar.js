@@ -75,11 +75,13 @@ const handleaction=(()=>{
         setloginout(true)
         localStorage.removeItem("value");
         localStorage.removeItem("token");
+        
         // localStorage.removeItem("value")
         // localStorage.clear()
         // localStorage.removeItem("value")
         // dispatch(removecartItems())
         navigate('/')
+        window.location.reload(false);
     }
     
     //   const nav=useNavigate()

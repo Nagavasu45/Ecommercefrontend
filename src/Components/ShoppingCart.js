@@ -114,7 +114,7 @@ let resetCart1=()=>{
       ) : (
         <>
         
-          {productsInShoppingCart.map((eachProduct, index) => (
+          {productsInShoppingCart.length>0 && productsInShoppingCart.map((eachProduct, index) => (
             <div id="single-cart-container" key={index}>
               <img src={eachProduct.imgstore} alt="not loaded" onClick={() => navigate(`/details/${eachProduct.id}`)} />
 
@@ -135,8 +135,8 @@ let resetCart1=()=>{
                 <span id="price-span">{eachProduct.price * eachProduct.quantity}</span>
                 <span
                   id="trash-icon"
-                  onClick={() => dispatch(remove(eachProduct.id))}
-                >
+                  onClick={() => dispatch(remove(eachProduct.id))}>
+                
                   {/* <FaTrashAlt /> */}
                 </span>
               </div>
