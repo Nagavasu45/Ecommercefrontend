@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ZeroProduct from "./ZeroProduct.js";
 // import { FaTrashAlt } from "react-icons/fa";
-import { add, remove, removeOne, resetCart } from "../redux/features/navbar/navbarSlice";
+import { add, remove, removeOne, } from "../redux/features/navbar/navbarSlice";
 import { useNavigate } from "react-router-dom";
+import "../styles/ShoppingCart.css"
 
 
 import "../styles/ShoppingCart.css";
@@ -93,12 +94,12 @@ body:JSON.stringify(body),
   }
 let resetCart1=()=>{
   console.log("checking")
-  //localStorage.removeItem("value")
+  localStorage.removeItem("value")
   //dispatch(resetCart(cartitems))
   for (let i=0;i<productsInShoppingCart.length;i++){
     dispatch(remove(productsInShoppingCart[i]))
   }
-  window.location.reload(true);
+  window.location.reload(false);
 // dispatch(resetCart)
 }
 
@@ -107,10 +108,12 @@ let resetCart1=()=>{
   return (
     <>
       <h1 id="shopping-cart-heading">SHOPPING CART</h1>
+      
       {calculateTotalPrice() === 0 ? (
         <ZeroProduct />
       ) : (
         <>
+        
           {productsInShoppingCart.map((eachProduct, index) => (
             <div id="single-cart-container" key={index}>
               <img src={eachProduct.imgstore} alt="not loaded" onClick={() => navigate(`/details/${eachProduct.id}`)} />
@@ -147,8 +150,10 @@ let resetCart1=()=>{
             <span id="right">{calculateTotalPrice()}</span>
           </div>
           {/* <button onClick={removecartItemscall}>clearCart</button> */}
-          <button className="makep" onClick={makePayment}>payment</button>
-          <button onClick={resetCart1}>clearcart</button>
+          <div className="makepayment1">
+            <div className="makep">
+          <button  onClick={makePayment}>payment</button></div>
+          <div><button onClick={resetCart1}>clearcart</button></div></div>
         </>
       )}
     </>
