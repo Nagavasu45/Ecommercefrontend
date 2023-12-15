@@ -77,6 +77,7 @@ body:JSON.stringify(body),
     const result=stripe.redirectToCheckout({
       sessionId:session.id
     });  
+    localStorage.removeItem("value")
     if(result.error){
       console.log( result.error);
     }
