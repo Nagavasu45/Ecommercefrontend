@@ -76,21 +76,10 @@ body:JSON.stringify(body),
     console.log(session)
     const result=stripe.redirectToCheckout({
       sessionId:session.id
-    });
-   
-  // localStorage.removeItem("value")
-  // //dispatch(resetCart(cartitems))
-  // for (let i=0;i<productsInShoppingCart.length;i++){
-  //   dispatch(remove(productsInShoppingCart[i]))
-  // }
-  // window.location.reload(false);
-
-  
+    });  
     if(result.error){
       console.log( result.error);
     }
-
-
   }
 let resetCart1=()=>{
   console.log("checking")
