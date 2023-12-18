@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React  from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {  useNavigate ,NavLink} from "react-router-dom";
 
@@ -9,64 +9,62 @@ import "../styles/footer.css"
 
 import "../styles/Products.css";
 import { useParams } from "react-router-dom";
+import NoProduct from "./NoProduct";
 
 function SearchBar() {
 
     const products = useSelector(state => state.productsReducer.value); // products is an array
-    const [searchproduct,Setsearchproduct]=useState("")
+    // const [searchproduct,Setsearchproduct]=useState("")
     const nav = useNavigate();
     const dispatch = useDispatch();
-    const param=useParams().search.trim().toLowerCase();
+    let param=useParams().search.trim().toLowerCase();
     const mobiles=['phones',"phone","mobile",'mobiles']
     const laptops=['laptops',"lapy","laptop"]
     const access=["chargers",'charger','accesserious']
     const tv=['tv','tvs',"smart tvs","smarttv",'smarttvs','smart tv']
+    let j=0;
     for(let i=0;i<mobiles.length;i++){
         if(param===mobiles[i]){
-            return Setsearchproduct('mobile')
+            param='mobile'
+            j=1;
+            break;
         }
     }
-    for(let i=0;i<laptops.length;i++){
-        if(param===laptops[i]){
-            return Setsearchproduct('lapy')
+    if(j===0){
+        for(let i=0;i<laptops.length;i++){
+            if(param===laptops[i]){
+                param='lapy';
+                j=1;
+                break;
+            }
         }
+
     }
-    for(let i=0;i<access.length;i++){
-        if(param===access[i]){
-            return Setsearchproduct('access')
-        }
-    }
-    for(let i=0;i<tv.length;i++){
-        if(param===tv[i]){
-            return Setsearchproduct('tv')
-        }
-    }
-    // useEffect(()=>{
     
-    //     for(let i=0;i<mobiles.length;i++){
-    //         if(param===mobiles[i]){
-    //             return Setsearchproduct('mobile')
-    //         }
-    //     }
-    //     for(let i=0;i<laptops.length;i++){
-    //         if(param===laptops[i]){
-    //             return Setsearchproduct('lapy')
-    //         }
-    //     }
-    //     for(let i=0;i<access.length;i++){
-    //         if(param===access[i]){
-    //             return Setsearchproduct('access')
-    //         }
-    //     }
-    //     for(let i=0;i<tv.length;i++){
-    //         if(param===tv[i]){
-    //             return Setsearchproduct('tv')
-    //         }
-    //     }
+    if(j===0){
+        for(let i=0;i<access.length;i++){
+            if(param===access[i]){
+                param='access';
+                j=1;
+                break;
+            }
+        }
 
-    // },[])
+    }
+    if(j===0){
+        for(let i=0;i<tv.length;i++){
+            if(param===tv[i]){
+                param='tv';
+                j=1;
+                break;
+            }
+        }
+
+    }
+   
     console.log(param)
-
+    const arr=products.filter((item)=>item.subcatageory===param ||item.catageory===param || item.modelname===param)
+    console.log(arr.length)
     
     // const searchItem=localStorage.getItem("value1")
     // console.log("welcome")
@@ -82,13 +80,12 @@ function SearchBar() {
        
             {/* <Hero /> */}
             
-
+            {arr.length>0 ? <div>
             <h1>-----Are you looking this------</h1>
 
             <div id="flex-container">
-            {/* {data1.filter((item1)=>item1.level==="medium" && item1.catageory==="bolly") */}
-                {products.filter((item)=>item.subcatageory===param ||item.catageory===param || item.modelname===param 
-                ||item.subcatageory===searchproduct ||item.catageory===searchproduct || item.modelname===searchproduct ).map((eachProduct, index) => {
+            
+                {arr.map((eachProduct, index) => {
                     
                     return (
                         // <NavLink to="/">
@@ -116,6 +113,7 @@ function SearchBar() {
                         );
                 })}
             </div>
+            </div> : <NoProduct />}
             <div className="f1">
     <div >
     <div className="f2">Follow Us</div>

@@ -26,6 +26,7 @@ import Login from "./Components/Login";
 import SearchBar from "./Components/SearchBar";
 import Success from "./Components/Success";
 import Cancel from "./Components/Cancel";
+import NoProduct from "./Components/NoProduct";
 // import Payment from "./Components/Payment";
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
         <Route path="/Success" element={<Success />} />
         <Route path="/Cancel" element={<Cancel />}/>
         {/* <Route path="/Payment/:amount" element={<Payment />}/> */}
+        <Route path="/NoProduct" element={<NoProduct />}/>
       </Routes>
       {/* <Routes>
         <Route path="/home" element={<Products />}

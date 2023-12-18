@@ -342,11 +342,14 @@ margin-top:100px ;
 .f1{
     width: 100%;
     min-height: 100px;
+    position: relative;
+    bottom: 0px;
     display: flex;
     align-items: center;
     /* flex-direction: column; */
     justify-content: space-around;
     background-image:linear-gradient(rgb(186, 232, 237),rgb(220, 239, 243));
+    
 }
 .f2{
     font-size: 25px;
@@ -761,7 +764,9 @@ margin-top:100px ;
     .f1{
         width: 100%;
         min-height: 100px;
-        margin-bottom: 50px;
+        position: relative;
+        bottom: 0px;
+
         display: flex;
     flex-direction: column;
         /* justify-content: space-around; */
@@ -1196,7 +1201,8 @@ margin-top:100px ;
     .f1{
         width: 100%;
         min-height: 100px;
-        margin-bottom: 50px;
+        position: relative;
+        bottom: 0px;
         display: flex;
         align-items: center;
     flex-direction: column;
