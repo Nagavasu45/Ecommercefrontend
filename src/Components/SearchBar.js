@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {  useNavigate ,NavLink} from "react-router-dom";
 
@@ -15,38 +15,59 @@ function SearchBar() {
     const products = useSelector(state => state.productsReducer.value); // products is an array
     const [searchproduct,Setsearchproduct]=useState("")
     const nav = useNavigate();
+    const dispatch = useDispatch();
     const param=useParams().search.trim().toLowerCase();
     const mobiles=['phones',"phone","mobile",'mobiles']
     const laptops=['laptops',"lapy","laptop"]
     const access=["chargers",'charger','accesserious']
     const tv=['tv','tvs',"smart tvs","smarttv",'smarttvs','smart tv']
-    useEffect(()=>{
-        let j=0;
-        for(let i=0;i<mobiles.length;i++){
-            if(param==mobiles[i]){
-                return Setsearchproduct('mobile')
-            }
+    for(let i=0;i<mobiles.length;i++){
+        if(param===mobiles[i]){
+            return Setsearchproduct('mobile')
         }
-        for(let i=0;i<laptops.length;i++){
-            if(param==laptops[i]){
-                return Setsearchproduct('lapy')
-            }
+    }
+    for(let i=0;i<laptops.length;i++){
+        if(param===laptops[i]){
+            return Setsearchproduct('lapy')
         }
-        for(let i=0;i<access.length;i++){
-            if(param==access[i]){
-                return Setsearchproduct('access')
-            }
+    }
+    for(let i=0;i<access.length;i++){
+        if(param===access[i]){
+            return Setsearchproduct('access')
         }
-        for(let i=0;i<tv.length;i++){
-            if(param==access[i]){
-                return Setsearchproduct('tv')
-            }
+    }
+    for(let i=0;i<tv.length;i++){
+        if(param===tv[i]){
+            return Setsearchproduct('tv')
         }
+    }
+    // useEffect(()=>{
+    
+    //     for(let i=0;i<mobiles.length;i++){
+    //         if(param===mobiles[i]){
+    //             return Setsearchproduct('mobile')
+    //         }
+    //     }
+    //     for(let i=0;i<laptops.length;i++){
+    //         if(param===laptops[i]){
+    //             return Setsearchproduct('lapy')
+    //         }
+    //     }
+    //     for(let i=0;i<access.length;i++){
+    //         if(param===access[i]){
+    //             return Setsearchproduct('access')
+    //         }
+    //     }
+    //     for(let i=0;i<tv.length;i++){
+    //         if(param===tv[i]){
+    //             return Setsearchproduct('tv')
+    //         }
+    //     }
 
-    },[param])
+    // },[])
     console.log(param)
 
-    const dispatch = useDispatch();
+    
     // const searchItem=localStorage.getItem("value1")
     // console.log("welcome")
     // console.log(typeof(searchItem))
