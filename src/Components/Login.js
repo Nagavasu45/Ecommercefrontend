@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate ,NavLink} from 'react-router-dom';
 // import "./Styles.css"
-// import "../styles/Styles.css"
+import "../styles/Styles.css"
 const Login = () => {
   const nav=useNavigate()
   const [ldata,ldataset]=useState({
@@ -45,17 +45,17 @@ const Login = () => {
 
   };
   return (
-    <div>
-        <form className='r1'>
+    <div className='r1'>
+        <form className='r2'>
         <h3>Login with email and password</h3>
         <label htmlFor="email">Email:
         </label>
-        <input type='email' name='email' value={ldata.email} onChange={appdata1} required /><br/>
+        <input type='email' name='email' value={ldata.email} onChange={appdata1} className='in1' required /><br/>
         <label htmlFor="password">Password:
         </label>
-        <input type='password' name='password' value={ldata.password} onChange={appdata1} required/><br/>
-        <NavLink to="/register" className="navdeco"><h4> Registered?!</h4></NavLink>
-        <button type='submit'onClick={datasubmit} >SignIn</button>
+        <input type='password' name='password' value={ldata.password} onChange={appdata1} className='in1' required/><br/>
+        <NavLink to="/register"  ><h4> Registered?!</h4></NavLink>
+        <button type='submit'onClick={datasubmit} className='b1' >SignIn</button>
         </form>
       
     </div>

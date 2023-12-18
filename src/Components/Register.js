@@ -56,27 +56,28 @@ const Register = () => {
     
   return (
     <>
-      
-        <form className='r1'>
+      <div className='r1'>
+        <form className='r2'>
         <h3>Register and create an Account</h3>
             
         <label htmlFor="username">Name:
 
         </label>
-        <input type='text' name='username' value={rdata.username} onChange={appdata}  required/><br/>
+        <input type='text' name='username' value={rdata.username} onChange={appdata} className='in1' required/><br/>
         <label htmlFor="mobilenumber">Phone number:
         </label>
-        <input type='number' name='mobilenumber' value={rdata.mobilenumber} onChange={appdata} required  /><br/>
+        <input type='number' name='mobilenumber' value={rdata.mobilenumber} onChange={appdata} className='in1' required  /><br/>
         <label htmlFor="email">Email:
         </label>
-        <input type='email' name='email' value={rdata.email} onChange={appdata} required /><br/>
+        <input type='email' name='email' value={rdata.email} onChange={appdata} className='in1' required /><br/>
         <label htmlFor="password">Password:
         </label>
-        <input type='password' name='password' value={rdata.password} onChange={appdata} required/><br/>
+        <input type='password' name='password' value={rdata.password} onChange={appdata} className='in1' required/><br/>
         {/* <button type='reset'>Cancel</button> */}
-        <button type='submit'onClick={datasubmit} >Register</button>
+        <button type='submit'onClick={datasubmit}  className='b1'>Register</button>
        
         </form>
+        </div>
        {/* onClick={datasubmit} */}
     </>
   )
