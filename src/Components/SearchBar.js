@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {  useNavigate ,NavLink} from "react-router-dom";
 
@@ -13,10 +13,37 @@ import { useParams } from "react-router-dom";
 function SearchBar() {
 
     const products = useSelector(state => state.productsReducer.value); // products is an array
-
+    const [searchproduct,Setsearchproduct]=useState("")
     const nav = useNavigate();
-    const param=useParams().search.trim();
-    
+    const param=useParams().search.trim().toLowerCase();
+    const mobiles=['phones',"phone","mobile",'mobiles']
+    const laptops=['laptops',"lapy","laptop"]
+    const access=["chargers",'charger','accesserious']
+    const tv=['tv','tvs',"smart tvs","smarttv",'smarttvs','smart tv']
+    useEffect(()=>{
+        let j=0;
+        for(let i=0;i<mobiles.length;i++){
+            if(param==mobiles[i]){
+                return Setsearchproduct('mobile')
+            }
+        }
+        for(let i=0;i<laptops.length;i++){
+            if(param==laptops[i]){
+                return Setsearchproduct('lapy')
+            }
+        }
+        for(let i=0;i<access.length;i++){
+            if(param==access[i]){
+                return Setsearchproduct('access')
+            }
+        }
+        for(let i=0;i<tv.length;i++){
+            if(param==access[i]){
+                return Setsearchproduct('tv')
+            }
+        }
+
+    },[param])
     console.log(param)
 
     const dispatch = useDispatch();
@@ -39,7 +66,8 @@ function SearchBar() {
 
             <div id="flex-container">
             {/* {data1.filter((item1)=>item1.level==="medium" && item1.catageory==="bolly") */}
-                {products.filter((item)=>item.subcatageory===param ||item.catageory===param || item.modelname===param).map((eachProduct, index) => {
+                {products.filter((item)=>item.subcatageory===param ||item.catageory===param || item.modelname===param 
+                ||item.subcatageory===searchproduct ||item.catageory===searchproduct || item.modelname===searchproduct ).map((eachProduct, index) => {
                     
                     return (
                         // <NavLink to="/">

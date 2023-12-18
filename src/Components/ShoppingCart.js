@@ -78,9 +78,12 @@ body:JSON.stringify(body),
       sessionId:session.id
     });  
     localStorage.removeItem("value")
+    // navigate("/Success")
+    
     if(result.error){
       console.log( result.error);
     }
+    
   }
 let resetCart1=()=>{
   console.log("checking")
@@ -123,12 +126,12 @@ let resetCart1=()=>{
               <div id="price">
                 <span id="dolar-span">$</span>
                 <span id="price-span">{eachProduct.price * eachProduct.quantity}</span>
-                <span
+                {/* <span
                   id="trash-icon"
                   onClick={() => dispatch(remove(eachProduct.id))}>
                 
-                  {/* <FaTrashAlt /> */}
-                </span>
+                   <FaTrashAlt /> 
+                </span> */}
               </div>
 
             </div>
