@@ -42,7 +42,7 @@ function ShoppingCart() {
     }
     else {
         alert("Please login to view cart page!");
-        navigate("/login");
+        navigate("/MianCompo");
     }
 }, [token, navigate])
 

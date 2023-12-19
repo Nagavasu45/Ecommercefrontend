@@ -31,7 +31,7 @@ function Checkproduct2() {
     }
     else {
         alert("Please login to view cart page!");
-        navigate("/login");
+        navigate("/MianCompo");
     }
 
 

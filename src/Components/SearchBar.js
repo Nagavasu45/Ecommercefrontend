@@ -22,6 +22,23 @@ function SearchBar() {
     const laptops=['laptops',"lapy","laptop"]
     const access=["chargers",'charger','accesserious']
     const tv=['tv','tvs',"smart tvs","smarttv",'smarttvs','smart tv']
+    function handleadd(eachProduct){
+        const token = localStorage.getItem("token");
+  console.log(token)
+//   useEffect(() => {
+    if (token) {
+        axios.get("https://ecombackend-82yd.onrender.com/auth", { headers: { "authorization": `Bearer ${token}` } }) //http://localhost:4500/apis/auth https://ecommerce-ns6o.onrender.com/apis/auth
+            .then((res) => {
+                console.log(res.data);
+                dispatch(add(eachProduct))
+            })
+            .catch(err => console.log(err))
+    }
+    else {
+        alert("Please login to view cart page!");
+        navigate("/MianCompo");
+    }
+    }
     let j=0;
     for(let i=0;i<mobiles.length;i++){
         if(param===mobiles[i]){
@@ -106,7 +123,7 @@ function SearchBar() {
                                     {eachProduct.price}
                                 </h2>
 
-                                <button id="shopping-cart" onClick={() => dispatch(add(eachProduct))} >Add</button> {/* sepete ekleme işlemi */}
+                                <button id="shopping-cart" onClick={()=>handleadd(eachProduct)} >Add</button> {/* sepete ekleme işlemi */}
                             </div>
                         </div>
                         // </NavLink>
