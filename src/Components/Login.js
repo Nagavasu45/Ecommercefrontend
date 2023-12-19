@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useNavigate ,NavLink} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 // import "./Styles.css"
 import "../styles/Styles.css"
 const Login = () => {
@@ -47,15 +47,22 @@ const Login = () => {
   return (
     <div className='r1'>
         <form className='r2'>
-        <h3>Login with email and password</h3>
-        <label htmlFor="email">Email:
-        </label>
+        <h3 className='label1'>Login with credentials</h3>
+        <br/>
+        <br/>
+        <label htmlFor="email" className='label1'>Email:
+        </label><br/>
         <input type='email' name='email' value={ldata.email} onChange={appdata1} className='in1' required /><br/>
-        <label htmlFor="password">Password:
-        </label>
+        <br/>
+        <label htmlFor="password" className='label1'>Password:
+        </label><br/>
         <input type='password' name='password' value={ldata.password} onChange={appdata1} className='in1' required/><br/>
-        <NavLink to="/register"  ><h4> Registered?!</h4></NavLink>
-        <button type='submit'onClick={datasubmit} className='b1' >SignIn</button>
+        {/* <NavLink to="/register"  ><h4> Registered?!</h4></NavLink> */}
+        <br/><br/>
+        <hr/>
+        <br/><br/>
+
+        <button type='submit'onClick={datasubmit}  className='label1 in2' >SignIn</button>
         </form>
       
     </div>

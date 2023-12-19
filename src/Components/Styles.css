@@ -1,38 +1,26 @@
-.r1{
-   margin-left: auto;
-   margin-right: auto;
-   margin-top: 5rem;
-   padding-bottom: 5rem;
-    width: 500px;
-    height: auto;
-    justify-content: center;
-    border: 2px solid rgb(39, 29, 29);
-    color: white;
-    font-size: 20px;
-    border-radius: 5px;
-    background-size: cover;
-    justify-content: space-between;
-    background-image: url('https://img.freepik.com/premium-vector/online-shopping-digital-technology-with-icon-blue-background-ecommerce-online-store-marketing_252172-219.jpg');
-}
-.main1{
 
-    position: relative;
-    z-index: 2;
-}
-.mainsub1{
-    position: relative;
-    z-index: 1;
-}
-input{
+
+
+/* input{
     background-color: rgb(166, 243, 215);
     margin-top: 30px;
-}
-/* button{
-    height: 30px;
-    border-radius: 10px;
-
-
-   
-    margin-top: 30px;
-    background-color: azure;
 } */
+.signbutton1{
+    width:50%;
+    height: 30px;
+    background-color: rgba(35,43,85,0.95);
+    color:rgb(225, 202, 202) ;
+}
+
+.signinup{
+    background:
+    linear-gradient(
+    rgba(35,43,85,0.75),
+    rgba(35,43,85,0.95));
+    width:350px;
+    height:550px;
+    margin: auto;
+}
+.mainsub1{
+    
+}

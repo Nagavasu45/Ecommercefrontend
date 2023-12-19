@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./Styles.css"
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 // import "../styles/Styles.css"
 const Register = () => {
   const [rdata,rdataset]=useState({
@@ -11,7 +11,7 @@ const Register = () => {
     password:"",
     mobilenumber:"",
   })
-  const nav=useNavigate()
+  // const nav=useNavigate()
   const appdata=(e)=>{
     
     rdataset({ ...rdata, [e.target.name]: e.target.value });
@@ -32,7 +32,7 @@ const Register = () => {
           localStorage.setItem('token',res.data.jwttoken)
 
           console.log(res.data.jwttoken)
-          nav("/login")
+          // nav("/login")
           alert(res.data.msg)
       }
       else{
@@ -58,23 +58,28 @@ const Register = () => {
     <>
       <div className='r1'>
         <form className='r2'>
-        <h3>Register and create an Account</h3>
+        
+        <h3 className='label1'>Create an Account</h3>
             
-        <label htmlFor="username">Name:
+        <label htmlFor="username" className='label1'>Name:
 
         </label>
         <input type='text' name='username' value={rdata.username} onChange={appdata} className='in1' required/><br/>
-        <label htmlFor="mobilenumber">Phone number:
+        <br/><label htmlFor="mobilenumber" className='label1'>Phone number:
         </label>
         <input type='number' name='mobilenumber' value={rdata.mobilenumber} onChange={appdata} className='in1' required  /><br/>
-        <label htmlFor="email">Email:
+        <br/><label htmlFor="email" className='label1'>Email:
         </label>
         <input type='email' name='email' value={rdata.email} onChange={appdata} className='in1' required /><br/>
-        <label htmlFor="password">Password:
+        <br/><label htmlFor="password" className='label1'>Password:
         </label>
         <input type='password' name='password' value={rdata.password} onChange={appdata} className='in1' required/><br/>
         {/* <button type='reset'>Cancel</button> */}
-        <button type='submit'onClick={datasubmit}  className='b1'>Register</button>
+        <br/>
+        <hr/>
+        
+        <br/>
+        <button type='submit' onClick={datasubmit}  className='label1 in2'>Register</button>
        
         </form>
         </div>

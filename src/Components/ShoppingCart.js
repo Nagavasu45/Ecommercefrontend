@@ -93,7 +93,7 @@ let resetCart1=()=>{
   for (let i=0;i<productsInShoppingCart.length;i++){
     dispatch(remove(productsInShoppingCart[i]))
   }
-  window.location.reload(false);
+  //window.location.reload(false);
 // dispatch(resetCart)
 }
 

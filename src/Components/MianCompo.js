@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import Register from './Register'
 import Login from './Login'
-import "./Styles.css"
+import "../styles/Styles.css"
 
 const MianCompo = () => {
 
-    const [data1,dataset1]=useState(false)
+    const [data1,dataset1]=useState(true)
     const [data2,dataset2]=useState(false)
     
     const but1=()=>{
@@ -19,18 +19,18 @@ const MianCompo = () => {
    
     
   return (
-    <div>
+    <div className='signinup'>
         
-    <button type='submit' onClick={but1}>Register</button>
-    <button type='submit' onClick={but2}>Login</button>
+    <button type='submit' className='signbutton1' onClick={but1}>Login</button>
+    <button type='submit' className='signbutton1' onClick={but2}>Signup</button>
    <div className='main1'>
     <span className='mainsub1'>{
-            data1 ? <Register />:" "
+            data1 ? <Login />:" "
     }</span>
     <span className='mainsub1'>{
-      data2 ?<Login />:" "
-    } </span></div>
-   
+      data2 ?<Register />:" "
+    } </span>
+   </div>
       
       
     </div>

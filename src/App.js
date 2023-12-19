@@ -27,6 +27,7 @@ import SearchBar from "./Components/SearchBar";
 import Success from "./Components/Success";
 import Cancel from "./Components/Cancel";
 import NoProduct from "./Components/NoProduct";
+import MianCompo from "./Components/MianCompo";
 // import Payment from "./Components/Payment";
 
 function App() {
@@ -77,6 +78,8 @@ function App() {
         <Route path="/Cancel" element={<Cancel />}/>
         {/* <Route path="/Payment/:amount" element={<Payment />}/> */}
         <Route path="/NoProduct" element={<NoProduct />}/>
+        <Route path="/MianCompo" element={<MianCompo />}/>
+        
       </Routes>
       {/* <Routes>
         <Route path="/home" element={<Products />}

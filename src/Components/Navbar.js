@@ -110,7 +110,7 @@ const handleaction=(()=>{
 
         <div className="loginpart">{loginout ? <div>
                 
-  <button className="dropbtn"><NavLink to="/Login">Login</NavLink></button>
+  <button className="dropbtn"><NavLink to="/MianCompo">Login</NavLink></button>
   </div>
 : 
 <div>
