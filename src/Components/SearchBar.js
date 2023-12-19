@@ -10,12 +10,14 @@ import "../styles/footer.css"
 import "../styles/Products.css";
 import { useParams } from "react-router-dom";
 import NoProduct from "./NoProduct";
+import axios from "axios";
 
 function SearchBar() {
 
     const products = useSelector(state => state.productsReducer.value); // products is an array
     // const [searchproduct,Setsearchproduct]=useState("")
     const nav = useNavigate();
+    
     const dispatch = useDispatch();
     let param=useParams().search.trim().toLowerCase();
     const mobiles=['phones',"phone","mobile",'mobiles']
@@ -36,7 +38,7 @@ function SearchBar() {
     }
     else {
         alert("Please login to view cart page!");
-        navigate("/MianCompo");
+        nav("/MianCompo");
     }
     }
     let j=0;
