@@ -59,7 +59,7 @@ const Login = () => {
         <input type='password' name='password' value={ldata.password} onChange={appdata1} className='in1' required/><br/>
         {/* <NavLink to="/register"  ><h4> Registered?!</h4></NavLink> */}
         <br/><br/>
-        <hr/>
+        <hr className='in3'/>
         <br/><br/>
 
         <button type='submit'onClick={datasubmit}  className='label1 in2' >SignIn</button>

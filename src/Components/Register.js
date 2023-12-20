@@ -76,7 +76,7 @@ const Register = () => {
         <input type='password' name='password' value={rdata.password} onChange={appdata} className='in1' required/><br/>
         {/* <button type='reset'>Cancel</button> */}
         <br/>
-        <hr/>
+        <hr className='in3'/>
         
         <br/>
         <button type='submit' onClick={datasubmit}  className='label1 in2'>Register</button>

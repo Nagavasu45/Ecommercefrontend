@@ -18,9 +18,15 @@
     rgba(35,43,85,0.75),
     rgba(35,43,85,0.95));
     width:350px;
-    height:550px;
+    height:100px;
     margin: auto;
+    margin-top: 2rem;
 }
-.mainsub1{
-    
-}
+/* .backgimage{
+    background-image:url("https://img.freepik.com/premium-vector/online-shopping-digital-technology-with-icon-blue-background-ecommerce-online-store-marketing_252172-219.jpg") ;
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 100%;
+   
+   
+} */
