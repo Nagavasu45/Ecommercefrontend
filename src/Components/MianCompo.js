@@ -12,11 +12,11 @@ const MianCompo = () => {
     const [data2,dataset2]=useState(false)
     
     const but1=()=>{
-      dataset1(!data1) 
+      dataset1(true) 
       dataset2(false)     
     }
     const but2=()=>{
-      dataset2(!data2)
+      dataset2(true)
       dataset1(false)
     }
    
