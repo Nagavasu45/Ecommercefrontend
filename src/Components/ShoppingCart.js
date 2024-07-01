@@ -66,7 +66,7 @@ function ShoppingCart() {
     const headers={
       "content-Type":"application/json"
     }
-    const response=await fetch("https://ecombackend-82yd.onrender.com/createcheckout",
+    const response=await fetch("https://ecommerecebackend.onrender.com/createcheckout",
     {method:"POST",
   headers:headers,
 body:JSON.stringify(body),
