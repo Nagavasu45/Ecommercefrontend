@@ -17,7 +17,7 @@ const Login = () => {
   const datasubmit=(e)=>{
     e.preventDefault()
     axios
-      .post('https://ecombackend-82yd.onrender.com/login',ldata)
+      .post('http://localhost:3400/login',ldata)
       .then((res) => {
         
         

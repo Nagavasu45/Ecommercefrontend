@@ -59,11 +59,12 @@ const handleaction=(()=>{
     
     useEffect(() => {
         if (token) {
-            axios.get("https://ecombackend-82yd.onrender.com/auth", { headers: { "authorization": `Bearer ${token}` } }) //https://ecommerce-ns6o.onrender.com/apis/auth http://localhost:4500/apis/auth
+            setloginout(false);
+            axios.get("http://localhost:3400/auth", { headers: { "authorization": `Bearer ${token}` } }) //https://ecommerce-ns6o.onrender.com/apis/auth http://localhost:4500/apis/auth
                 .then((res) => {
                     console.log(res.data.msg);
                     if (res.data.msg ==="User Authorized") {
-                        setloginout(false);
+                        console.log(res.data.msg);
                         // navigate("/ShoppingCart")
 
                     }
