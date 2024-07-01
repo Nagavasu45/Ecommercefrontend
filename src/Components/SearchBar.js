@@ -29,7 +29,7 @@ function SearchBar() {
   console.log(token)
 //   useEffect(() => {
     if (token) {
-        axios.get("https://ecombackend-82yd.onrender.com/auth", { headers: { "authorization": `Bearer ${token}` } }) //http://localhost:4500/apis/auth https://ecommerce-ns6o.onrender.com/apis/auth
+        axios.get("https://ecommerecebackend.onrender.com/auth", { headers: { "authorization": `Bearer ${token}` } }) //http://localhost:4500/apis/auth https://ecommerce-ns6o.onrender.com/apis/auth
             .then((res) => {
                 console.log(res.data);
                 dispatch(add(eachProduct))

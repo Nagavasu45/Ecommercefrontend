@@ -21,7 +21,7 @@ const Register = () => {
     e.preventDefault()
     // https://nodehanson4.onrender.com/registerpage
     axios
-      .post('http://localhost:3400/register',rdata)
+      .post('https://ecommerecebackend.onrender.com/register',rdata)
       .then((res) => {
         
         // setStore(res.data.msg);

@@ -12,7 +12,7 @@ const Success = () => {
   
   window.location.reload(false);
   }
-  axios.get("https://ecombackend-82yd.onrender.com/Cancel")
+  axios.get("https://ecommerecebackend.onrender.com/Cancel")
   .then((res)=>{
     Setscs(res.data)
 
