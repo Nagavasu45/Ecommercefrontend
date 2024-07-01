@@ -8,7 +8,7 @@ const initialState = {
 }
 
 export const getProducts = createAsyncThunk("getProducts", async () => {
-    const response = await axios.get("https://ecombackend-82yd.onrender.com/mobdata");
+    const response = await axios.get("https://ecommerecebackend.onrender.com/mobdata");
     // console.log(response);
     // console.log(response.data);
     // console.log(response.data.products); 

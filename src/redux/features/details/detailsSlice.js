@@ -22,7 +22,7 @@ const initialState = {
 }
 
 export const getDetails = createAsyncThunk("getDetails", async (id) => {
-    const response = await axios.get(`https://ecombackend-82yd.onrender.com/mobdata`);
+    const response = await axios.get(`https://ecommerecebackend.onrender.com/mobdata`);
     console.log(response.data)
     console.log(typeof(id))
     const data=response.data.filter((item)=>item.id===Number(id))
